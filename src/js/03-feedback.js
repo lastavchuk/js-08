@@ -1,4 +1,4 @@
-import debounce from 'lodash.debounce';
+import throttle from 'lodash.throttle';
 
 const form = document.querySelector('.feedback-form');
 const KEYWORLD = 'feedback-form-state';
@@ -6,7 +6,7 @@ const KEYWORLD = 'feedback-form-state';
 let rezObj = {};
 updateForm();
 
-form.addEventListener('input', debounce(onInputChange, 500));
+form.addEventListener('input', throttle(onInputChange, 500));
 form.addEventListener('submit', onSubmit);
 
 function onInputChange(event) {
